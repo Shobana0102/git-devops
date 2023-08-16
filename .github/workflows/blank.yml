@@ -40,7 +40,7 @@ jobs:
         working-directory: '${{github.workspace}}/Bicep'
         run: |
 
-          az bicep build --file ./Bicep/ResourceGroup.Bicep  --outdir ./jsonfile
+          az bicep build --file ./Bicep/ResourceGroup.Bicep  --outdir .Bicep/jsonfile
           ls ./jsonfile
 
 
