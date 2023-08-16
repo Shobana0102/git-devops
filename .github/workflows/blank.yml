@@ -37,10 +37,10 @@ jobs:
           creds: ${{ secrets.MY_SECRET }}
 
       - name: Run Bicep Linter
-        working-directory: '${{github.workspace}}/Bicep'
+        working-directory: '${{github.workspace}}'
         run: |
 
-          az bicep build --file ./ResourceGroup.Bicep  --outdir ./jsonFile
+          az bicep build --file ./ResourceGroup.Bicep  --outdir ./jsonFilesForScan
           ls ./jsonFile
 
 
@@ -62,7 +62,7 @@ jobs:
           creds: ${{ secrets.MY_SECRET }}
 
       - name: Run Template Validation
-        working-directory: '${{github.workspace}}/Bicep'
+        working-directory: '${{github.workspace}}'
         run: |
           az deployment group validate --name Deploy1 --template-file ./ResourceGroup.Bicep --parameters ./ResGrp.json
   
