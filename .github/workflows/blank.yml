@@ -25,7 +25,7 @@ Lint:
   -name: Azure-login
    uses: azure/login@v1
    with:
-      creds: ${{ secrets.MY_SECRET 
+      creds: ${{ secrets.MY_SECRET }}
 
   -name: Rub Bicep Linter
     working-directory: '${{github.workspace}}/src/bicep'
