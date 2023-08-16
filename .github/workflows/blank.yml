@@ -29,7 +29,7 @@ jobs:
 
       - name: Create Output Directory
         run: |
-          mkdir -p ${{ github.workspace }}
+          mkdir -p ${{ github.workspace }}/Bicep/jsonfile
 
       - name: Azure-Login
         uses: azure/login@v1
@@ -37,11 +37,11 @@ jobs:
           creds: ${{ secrets.MY_SECRET }}
 
       - name: Run Bicep Linter
-        working-directory: '${{github.workspace}}'
+        working-directory: '${{github.workspace}}/Bicep'
         run: |
 
-          az bicep build --file ./Bicep/ResourceGroup.Bicep  --outdir ./jsonFilesForScan
-          ls ./jsonFilesForScan
+          az bicep build --file ./Bicep/ResourceGroup.Bicep  --outdir ./jsonfile
+          ls ./jsonfile
 
 
   # This workflow contains a single job called "Validate"
